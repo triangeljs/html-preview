@@ -1,0 +1,65 @@
+{
+    "name": "html-preview",
+    "displayName": "Html Preview",
+    "description": "实时预览HTML视图",
+    "version": "0.1.0",
+    "publisher": "Triangel",
+    "license": "See License section in README.md",
+    "homepage": "https://github.com/triangeljs/founderCmsLabelFreemarker/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/triangeljs/founderCmsLabelFreemarker.git"
+    },
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "html.showPreview",
+                "title": "实时视图"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "resourceLangId == true",
+                    "command": "html.showPreview"
+                }
+            ],
+            "editor/title": [
+                {
+                    "when": "resourceLangId == true",
+                    "command": "html.showPreview",
+                    "group": "1_close"
+                }
+            ]
+        },
+        "keybindings": [
+            {
+                "command": "html.showPreview",
+                "key": "ctrl+l",
+                "mac": "cmd+l",
+                "when": "editorTextFocus"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {}
+}
